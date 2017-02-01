@@ -1,0 +1,7 @@
+{
+    "name": "stackoverflow-ingest-collector",
+    "main": "collector.js",
+    "dependencies": {
+        "message-hub-rest": "^1.2"
+    }
+}
