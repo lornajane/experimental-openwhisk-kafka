@@ -1,6 +1,0 @@
-{
-    "name": "stackoverflow-ingest-collector",
-    "dependencies": {
-        "message-hub-rest": "~1.2"
-    }
-}

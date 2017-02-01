@@ -1,0 +1,4 @@
+{
+    "name": "stackoverflow-ingest-collector-init",
+    "main": "init.js"
+}
