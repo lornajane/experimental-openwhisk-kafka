@@ -1,16 +1,18 @@
 function main(params) {
 
   return new Promise(function(resolve, reject) {
+
     var openwhisk = require('openwhisk');
     var list = ['Susie', 'Freya', 'Ruth'];
-    console.log(list);
     var ow = openwhisk();
-    console.log(ow);
 
-    ow.actions.invoke({actionName: "invoker/hello", params: {name: "Hayley"}})
-    .then(function (data) {
-      console.log("done!");
+    var actions = list.map(function (item) {
+      return ow.actions.invoke({actionName: "invoker/hello", params: {name: item}});
     });
-    return {payload: list};
+
+    return Promise.all(actions).then(function (results) {
+        console.log(results);
+        return resolve({payload: "All OK"});
+    });
   });
 }
